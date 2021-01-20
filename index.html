@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooby-Doo</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div class="center">
+        <h1 id="title"></h1>
+        <div class="controls-video">
+            <button class="button" onclick="anteriorVideo()">Anterior</button>
+            <video id="video" controls autoplay  width="530px" height="400px" name="media"></video>
+            <button class="button" onclick="siguienteVideo()">Siguiente</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    var posicion = 0;
+    const video = document.getElementById('video');
+    const source = document.createElement('source');
+    const videos = [
+        {
+            id: '1',
+            nombre: 'La leyenda del caballero negro',
+        },
+        {
+            id: '2',
+            nombre: 'Una pista para Scooby-Doo',
+        },
+        {
+            id: '3',
+            nombre: 'El Fantasma del Castillo',
+        },
+        {
+            id: '4',
+            nombre: 'El Fantasma de Ciudad de Oro',
+        },
+        {
+            id: '5',
+            nombre: 'El Señuelo',
+        },
+        {
+            id: '6',
+            nombre: 'Con mil demonios - Qué pasa aquí',
+        },
+        {
+            id: '7',
+            nombre: 'Jamás persigas a un hombre mono',
+        },
+        {
+            id: '8',
+            nombre: 'Falla divertida en los juegos mecánicos',
+        },
+        {
+            id: '9',
+            nombre: 'El teatro de los billetes falsos',
+        },
+        {
+            id: '10',
+            nombre: 'El caso del payaso Fantasma',
+        },
+        {
+            id: '11',
+            nombre: 'El castillo de Frankenstein',
+        },
+        {
+            id: '12',
+            nombre: 'Scooby-Doo y una momia también',
+        },
+        {
+            id: '13',
+            nombre: 'Cómo pescar una bruja',
+        },{
+            id: '14',
+            nombre: 'Esfúmate Barco Fantasma',
+        },{
+            id: '15',
+            nombre: 'El Fantasma del Aeropuerto Abandonado',
+        },{
+            id: '16',
+            nombre: 'Una Noche de Espanto, Causa Quebranto',
+        },{
+            id: '17',
+            nombre: 'El Fantasma de las Nieves',
+        },{
+            id: '18',
+            nombre: 'El Espectro de Hyde',
+        },{
+            id: '19',
+            nombre: 'La Máscara de Zen-Túo',
+        },{
+            id: '20',
+            nombre: 'El Papel Misterioso',
+        },{
+            id: '21',
+            nombre: 'La Noche de los Pies Helados',
+        },{
+            id: '22',
+            nombre: 'La Leyenda del Decapitado',
+        },{
+            id: '23',
+            nombre: 'La Aldea Encantada',
+        },{
+            id: '24',
+            nombre: 'Quién Teme al Lobo Feroz',
+        },{
+            id: '25',
+            nombre: 'No Juegues con un Fantasma',
+        }
+    ]
+    
+    function obtenerURL(id){
+        var url = "";
+        const parseName = videos[id].nombre.split(" ");
+        var nombreParseado = "";
+        nombreParseado = videos[id].id + ".";
+        for (let i = 0; i < parseName.length; i++) {
+            nombreParseado = nombreParseado + '%20' + parseName[i];
+        }
+        url = `https://liveudenaredu-my.sharepoint.com/personal/hugoandres272_udenar_edu_co/Documents/Scooby/${nombreParseado}.mp4?App=OneDriveWebVideo`;
+        return url;
+    }
+    
+    function anteriorVideo(){
+        if (posicion>0) {
+            posicion--;
+            document.getElementById("title").textContent = `${videos[posicion].id}. ${videos[posicion].nombre} `;
+            // document.getElementById("video").url = obtenerURL(posicion);
+            source.setAttribute('src', obtenerURL(posicion));
+            video.appendChild(source);
+            video.load();
+        }
+    }
+    
+    function siguienteVideo(){
+        if (posicion<videos.length) {
+            posicion++;
+            document.getElementById("title").textContent = `${videos[posicion].id}. ${videos[posicion].nombre} `;
+            // document.getElementById("video").url = obtenerURL(posicion);
+            source.setAttribute('src', obtenerURL(posicion));
+            video.appendChild(source);
+            video.load();
+        }
+    }
+    
+    document.getElementById("title").textContent = `${videos[posicion].id}. ${videos[posicion].nombre} `;
+    source.setAttribute('src', obtenerURL(posicion));
+    source.setAttribute('type', 'video/mp4');
+    video.appendChild(source);
+</script>
+</html>
