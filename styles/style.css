@@ -3,34 +3,81 @@ body {
     height: auto;
     margin: 0;
     padding: 0;
+    background-image: radial-gradient(circle at 118.3% 68.3%, #008f63 0, #009074 3.33%, #009084 6.67%, #009094 10%, #0090a4 13.33%, #0090b3 16.67%, #008fc0 20%, #008ecd 23.33%, #008cd7 26.67%, #008ae0 30%, #0087e7 33.33%, #0083eb 36.67%, #007fed 40%, #007aed 43.33%, #0075ea 46.67%, #486ee5 50%, #6d67de 53.33%, #885fd5 56.67%, #9e56ca 60%, #af4dbd 63.33%, #be44af 66.67%, #c93ca1 70%, #d23491 73.33%, #d82f82 76.67%, #db2d72 80%, #dd2e62 83.33%, #dc3353 86.67%, #d93a44 90%, #d44235 93.33%, #ce4b26 96.67%, #c65314 100%);
+}
+h1,h2 {
+    color: #efbbbe;
 }
 .center {
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* height: 100vh; */
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+.menu {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(184 197 220 / 45%);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.cerrar-sesion {
+    position: absolute;
+    right: 20px;
+    background-color: rgb(184 197 220 / 45%);
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+}
+.cerrar-sesion:hover {
+    background-color: #55cdf1;
+}
+.cerrar-sesion:focus {
+    outline: none;
 }
 .controls-video {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 90vw; */
     height: auto;
 }
 .button {
     margin: 0 20px;
+    background-color: transparent;
+    box-shadow: 1px 1px 20px 2px black;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: rgba(255, 0, 0, 0.473);
 }
 #video {
     max-width: 530px;
     width: 100%;
     height: auto;
 }
+.contenedor-video {
+    width: 530px;
+    height: 401.5px;
+}
+.invisible {
+    display: none;
+}
 @media (max-width: 600px) {
     .controls-video {
         flex-direction: column;
         width: 100vw;
+    }
+    .contenedor-video {
+        display: flex;
+        flex-direction: column;
+        max-width: 100vw;
     }
 }
