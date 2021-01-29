@@ -107,6 +107,7 @@ function obtenerURL(value){
 
 function anteriorVideo(){
     if (posicion>0) {
+        enviarDatos();
         posicion--;
         videoActual();
         var aux = videoTieneVisualizacion();
@@ -120,6 +121,7 @@ function anteriorVideo(){
 
 function siguienteVideo(){
     if (posicion<videos.length) {
+        enviarDatos();
         posicion++;
         videoActual();
         var aux = videoTieneVisualizacion();
@@ -268,17 +270,76 @@ function cerrarSesion(){
     location.href = "ingreso.html";
 }
 
-var mediaqueryList = window.matchMedia("(max-width: 500px)");
+function cargarLista(){
+    var vector = "";
+    for (let i = 0; i < videos.length; i++) {
+        vector = vector + `<li class="${videoActualDat(videos[i].id)}"><a onclick="cargarVideoEnPosicion(${videos[i].id})">${videos[i].id}. ${videos[i].nombre}</a></li>`;
+    }
+    function videoActualDat(id){
+        if(parseInt(id)===(parseInt(posicion)+1)){
+            return 'remarcar';
+        }
+    }
+    document.getElementById("listas-a").innerHTML = vector;
+}
+
+function cargarVideoEnPosicion(e){
+    posicion = parseInt(e)-1;
+    videoActual();
+    var aux = videoTieneVisualizacion();
+    if (aux!==-1) {
+        var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
+        video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+    }
+    enviarDatos();
+    document.getElementById("listas-a").classList.remove("mostrar-lista-resp");
+    document.getElementById("btn-list-2").innerHTML = '&#9650; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
+    document.getElementById("btn-list").classList.remove("cambio-root");
+    document.getElementById("listas-a").innerHTML = "";
+    document.getElementById("btn-list").classList.remove("cambio-color-boton");
+}
+
+var mediaqueryList = window.matchMedia("(max-width: 600px)");
+
+function desplegarLista(){
+    // console.log(document.querySelector("#btn-list.cambio-root"));
+    if(mediaqueryList.matches){
+        if(document.querySelector("#listas-a.mostrar-lista-resp")!==null){
+            document.getElementById("listas-a").classList.remove("mostrar-lista-resp");
+            document.getElementById("btn-list-2").innerHTML = '&#9650; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
+            document.getElementById("btn-list").classList.remove("cambio-root");
+            document.getElementById("listas-a").innerHTML = "";
+            document.getElementById("btn-list").classList.remove("cambio-color-boton");
+        }else{
+            document.getElementById("btn-list-2").innerHTML = '&#9660; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
+            document.getElementById("btn-list").classList.add("cambio-color-boton");
+            document.getElementById("listas-a").classList.add("mostrar-lista-resp");
+            cargarLista();
+        }
+    }else{
+        if(document.querySelector("#btn-list.cambio-root")===null){
+            document.getElementById("btn-list").classList.add("cambio-root");
+            document.getElementById("btn-list-2").innerHTML = '&#129152;';
+            cargarLista();
+        }else{
+            document.getElementById("btn-list").classList.remove("cambio-root");
+            document.getElementById("btn-list-2").innerHTML = '&#129154;';
+            document.getElementById("listas-a").innerHTML = "";
+        }
+    }
+}
+
 if(mediaqueryList.matches) {
     document.getElementById("btn-1").classList.add("invisible");
     document.getElementById("btn-1").classList.remove("button");
     document.getElementById("btn-2").classList.add("button");
     document.getElementById("modo-responsive").classList.add("row");
+    document.getElementById("btn-list-2").innerHTML = '&#9650; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
 }else{
+    document.getElementById("btn-list-2").innerHTML = '&#129154;';
     document.getElementById("btn-2").classList.add("invisible");
     document.getElementById("btn-2").classList.remove("button");
     document.getElementById("btn-1").classList.add("button");
-
 }
 
 document.getElementById("title").textContent = `${nombreSerie}`;
