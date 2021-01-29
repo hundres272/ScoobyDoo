@@ -273,6 +273,7 @@ if(mediaqueryList.matches) {
     document.getElementById("btn-1").classList.add("invisible");
     document.getElementById("btn-1").classList.remove("button");
     document.getElementById("btn-2").classList.add("button");
+    document.getElementById("modo-responsive").classList.add("row");
 }else{
     document.getElementById("btn-2").classList.add("invisible");
     document.getElementById("btn-2").classList.remove("button");
