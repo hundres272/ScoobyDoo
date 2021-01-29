@@ -87,7 +87,7 @@ h1,h2 {
     }
     .button {
         display: inline;
-        margin-top: 20px;
+        margin-top: 2vh;
     }
     .row {
         display: flex;
