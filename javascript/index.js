@@ -310,10 +310,12 @@ function desplegarLista(){
             document.getElementById("btn-list").classList.remove("cambio-root");
             document.getElementById("listas-a").innerHTML = "";
             document.getElementById("btn-list").classList.remove("cambio-color-boton");
+            document.getElementById("video").classList.remove("video-z");
         }else{
             document.getElementById("btn-list-2").innerHTML = '&#9660; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
             document.getElementById("btn-list").classList.add("cambio-color-boton");
             document.getElementById("listas-a").classList.add("mostrar-lista-resp");
+            document.getElementById("video").classList.add("video-z");
             cargarLista();
         }
     }else{

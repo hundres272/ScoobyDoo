@@ -206,7 +206,7 @@ a {
         /* display: var(--display); */
         display: none;
     }
-    #video {
+    .video-z {
         z-index: -1;
     }
     .mostrar-lista-resp {
