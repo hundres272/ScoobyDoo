@@ -170,6 +170,8 @@ function traerTiempo(){
             if (aux!==-1) {
                 video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
             }
+            document.getElementById("cargando").classList.add("invisible");
+            videoActual();
         }
     })
 }
@@ -344,8 +346,8 @@ if(mediaqueryList.matches) {
     document.getElementById("btn-1").classList.add("button");
 }
 
-document.getElementById("title").textContent = `${nombreSerie}`;
-document.getElementById("title-cap").textContent = `${videos[posicion].id}. ${videos[posicion].nombre} `;
-source.setAttribute('src', obtenerURL(posicion));
+// document.getElementById("title").textContent = `${nombreSerie}`;
+// document.getElementById("title-cap").textContent = `${videos[posicion].id}. ${videos[posicion].nombre} `;
+// source.setAttribute('src', obtenerURL(posicion));
 source.setAttribute('type', 'video/mp4');
 video.appendChild(source);
