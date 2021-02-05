@@ -153,16 +153,17 @@ a {
 }
 .fixed-center {
     display: flex;
-    background-color: rgba(255, 0, 0, 0.753);
+    background-color: #008ed5ce;
     position: fixed;
     left: 0;
     right: 0;
-    top: 0;
+    top: 40px;
     bottom: 0;
     color: white;
     font-size: 1.5em;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 .invisible {
     display: none;

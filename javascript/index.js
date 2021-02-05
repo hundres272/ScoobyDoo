@@ -154,7 +154,8 @@ function traerTiempo(){
     })
     .then(res => res.json())
     .then(res2 => {
-        console.log("datos traertiempo=");
+        // console.log("datos traertiempo=");
+        // console.log(res2);
         console.log(res2);
         if(res2.status!=='no encontrado'){
             localStorage.setItem("datosvideos", JSON.stringify(res2));
@@ -166,13 +167,16 @@ function traerTiempo(){
             }
             
             var aux = videoTieneVisualizacion();
-            videoActual();
+            // videoActual();
             if (aux!==-1) {
                 video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
             }
-            document.getElementById("cargando").classList.add("invisible");
+            videoActual();
+        }else{
+            posicion = 0;
             videoActual();
         }
+        document.getElementById("cargando").classList.add("invisible");
     })
 }
 
