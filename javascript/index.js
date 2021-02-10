@@ -288,6 +288,7 @@ function cargarLista(){
     }
     document.getElementById("listas-a").innerHTML = vector;
 }
+var mediaqueryList = window.matchMedia("(max-width: 600px)");
 
 function cargarVideoEnPosicion(e){
     posicion = parseInt(e)-1;
@@ -299,13 +300,17 @@ function cargarVideoEnPosicion(e){
     }
     enviarDatos();
     document.getElementById("listas-a").classList.remove("mostrar-lista-resp");
-    document.getElementById("btn-list-2").innerHTML = '&#9650; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
+    if(mediaqueryList.matches){
+        document.getElementById("btn-list-2").innerHTML = '&#9650; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
+    }else{
+        document.getElementById("btn-list-2").innerHTML = '&#129154;';
+    }
     document.getElementById("btn-list").classList.remove("cambio-root");
     document.getElementById("listas-a").innerHTML = "";
     document.getElementById("btn-list").classList.remove("cambio-color-boton");
 }
 
-var mediaqueryList = window.matchMedia("(max-width: 600px)");
+
 
 function desplegarLista(){
     // console.log(document.querySelector("#btn-list.cambio-root"));
