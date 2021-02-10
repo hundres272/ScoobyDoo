@@ -56,10 +56,10 @@ const videos = [
         nombre: 'Cómo pescar una bruja',
     },{
         id: '14',
-        nombre: 'Esfúmate Barco Fantasma',
+        nombre: 'El Fantasma del Aeropuerto Abandonado',
     },{
         id: '15',
-        nombre: 'El Fantasma del Aeropuerto Abandonado',
+        nombre: 'Esfúmate Barco Fantasma',
     },{
         id: '16',
         nombre: 'Una Noche de Espanto, Causa Quebranto',
@@ -226,8 +226,8 @@ function enviarDatos(){
         }
     };
     localStorage.setItem("datosvideos",JSON.stringify(data));
-    console.log("data: enviardatos=")
-    console.log(data);
+    // console.log("data: enviardatos=")
+    // console.log(data);
     fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
         method: 'PUT',
         body: JSON.stringify(data),
@@ -265,8 +265,8 @@ function llenarListaVideos(){
             "segundos": seconds
         });
     }
-    console.log("aux");
-    console.log(aux);
+    // console.log("aux");
+    // console.log(aux);
     return aux;
 }
 

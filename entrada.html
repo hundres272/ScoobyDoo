@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooby-Doo</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script>
+        var email = localStorage.getItem("email");
+        if(email===null){
+            location.href = "ingreso.html";
+        }
+    </script>
+</head>
+<body onbeforeunload="return salir()">
+    <div class="menu">
+        <button class="cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+    <div class="center">
+        <div class="list" id="btn-list">
+            <button class="btn-list" id="btn-list-2" onclick="desplegarLista()">&#129154;</button>
+            <label class="orientacion-cap">Capitulos</label>
+            <ul id="listas-a">
+                
+            </ul>
+        </div>
+        <div class="content">
+            <div class="fixed-center" id="cargando">Cargando ...</div>
+            <h1 id="title"></h1>
+            <h2 id="title-cap"></h2>
+            <div class="controls-video">
+                <button id="btn-1" class="button" onclick="anteriorVideo()">Anterior</button>
+                <div class="contenedor-video">
+                    <video id="video" controls autoplay  width="530px" height="400px" name="media" controlslist="nodownload"></video>
+                </div>
+                <div id="modo-responsive">
+                    <button id="btn-2" class="button" onclick="anteriorVideo()">Anterior</button>
+                    <button class="button" onclick="siguienteVideo()">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./javascript/index.js"></script>
+</html>
