@@ -189,7 +189,7 @@ function traerTiempo(){
         "serie": nombreSerie
     };
     
-    fetch(`http://localhost:8000/${nombreSerie}`,{
+    fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers:{
@@ -223,7 +223,6 @@ function traerTiempo(){
         document.getElementById("cargando").classList.add("invisible");
     })
 }
-// https://scoobyapphundres.herokuapp.com
 function obtenerParametroGet(url){
     // console.log(url.split("?")[1]);
     const paramget = url.split("?");
@@ -286,7 +285,7 @@ function enviarDatos(){
     localStorage.setItem("datosvideos",JSON.stringify(data));
     // console.log("data: enviardatos=")
     // console.log(data);
-    fetch(`http://localhost:8000/${nombreSerie}`,{
+    fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
         method: 'PUT',
         body: JSON.stringify(data),
         headers:{
