@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooby-Doo</title>
+    <link rel="stylesheet" href="./styles/styleSeriesAll.css">
+    <script>
+        var email = localStorage.getItem("email");
+        if(email===null){
+            location.href = "ingreso.html";
+        }
+    </script>
+</head>
+<body onbeforeunload="return salir()">
+    <div class="center">
+        <div class="menu">
+            <button class="cerrar-sesion left" onclick="home()">Inicio</button>
+            <button class="cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+        </div>
+        <div>
+            <img class="image-principal" src="./images/scoobyBig.jpg" />
+        </div>
+        <div class="series-with-name">
+            <h2>Hanna Barbera</h2>
+            <did class="series-column">
+                <div id="series-row" class="series-row">
+                    <a class="target-serie" href="/index.html?nombreSerie=Scooby">
+                        <img src="./images/scoobyPeq.jpg" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/087/original/24qiuu1.jpg?1532296805" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/094/original/MV5BMTYyNzYxZjItZDQ2YS00NzUwLWJjMjAtZTBlZWEzMGNlZjg3XkEyXkFqcGdeQXVyMjM5NDQzNTk_._V1_.jpg?1532299871" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/105/original/51B58WHQZTL._SX358_BO1_204_203_200_.jpg?1532346387" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/122/original/images.jpeg?1532380250" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/123/original/s-l300.jpg?1532380838" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/214/original/MV5BNzhmODE4MzktMmQ4ZC00Zjc1LWExMTYtOTgyNzIwODZmNTVmXkEyXkFqcGdeQXVyNjExODE1MDc_._V1_UY1200_CR123_0_630_1200_AL_.jpg?1556592344" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/306/original/EB3cZU7.jpg?1593408970" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/340/original/51IoRW-H97L.jpg?1597624574" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/348/original/MV5BNmU1YWQxN2MtNDhhMy00MjcxLTljMzUtNzQ2YzUxM2M1YWRhXkEyXkFqcGdeQXVyNjExODE1MDc_._V1_.jpg?1597627091" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                </div>
+            </did>
+            <button class="avanzar-lista" onclick="avanzar()">&#10097;</button>
+        </div>
+        <div class="series-with-name">
+            <h2>Nickelodeon</h2>
+            <did class="series-column">
+                <div id="series-row" class="series-row">
+                    <a class="target-serie" href="/index.html?nombreSerie=Scooby">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/139/original/avatar_last_airbender.jpg?1531999787" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/140/original/576d2da5a041ceac61de9fbe03981a30.jpg?1532000239" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/141/original/Le2E6Gj.jpg?1532000609" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/142/original/catdog-temporada-3.jpg?1532001361" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/144/original/series.588.IMAGEN1.jpg?1532002167" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/145/original/MV5BMGU5MWQ3ZWItMzEzMy00NjljLWFjYzUtMGMxNTk2YWEwMzMyXkEyXkFqcGdeQXVyNjExODE1MDc_._V1_UY268_CR3_0_182_268_AL_.jpg?1532004954" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/150/original/poster-thumb-1733.jpg?1532007462" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/151/original/the_adventures_of_jimmy_neutron_boy_genius_tv_series-686841142-large.jpg?1532007791" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/153/original/lra.jpg?1532008929" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/156/original/Rocko's_Modern_Life_COVER.jpg?1532010815" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/157/original/81x-WUt8PIL._SY445_.jpg?1532011068" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/158/original/51OBRtrMXlL._SY445_.jpg?1532011306" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/160/original/230px-Mighty_B_we_got_the_bee_dvd_cover.png?1532012248" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/161/original/0002774728.jpg?1532012580" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/162/original/MV5BZTEwNTNiYjYtMTk4Mi00NWJhLWJhYmQtMmM5YzI0M2ZjMmZhXkEyXkFqcGdeQXVyNTA4NzY1MzY_._V1_UY268_CR0_0_182_268_AL_.jpg?1532012903" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/163/original/81kbzs9ER1L._SY445_.jpg?1532014280" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/164/original/MV5BMjEwNzM3MjcwNV5BMl5BanBnXkFtZTgwOTAwNTI1MTE_._V1_UY268_CR7_0_182_268_AL_.jpg?1532014506" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/165/original/MV5BZGQ3YjZlMjUtMDQ4Mi00NGNiLWFhODItYTUwMGM1ZGI5ZGY5XkEyXkFqcGdeQXVyNjk1Njg5NTA_._V1_UX182_CR0_0_182_268_AL_.jpg?1532014664" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/167/original/91k582OOkJL._SY445_.jpg?1532015193" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/168/original/4e818c0a1f75faadba5ce0cf89828c6705913da6.jpg?1532015656" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/200/original/31-T1.jpg?1539569803" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>
+                    <a class="target-serie" href="https://facebook.com">
+                        <img src="https://www.lacartoons.com/system/series/portadas/000/000/278/original/d2865ec9b90e714bf0fef65c8a93636c.jpg?1586038055" alt="Scooby Doo" />
+                        <div class="nombre-serie">
+                            Scooby Doo<br>¿Donde estás?
+                        </div>
+                    </a>                    
+                </div>
+            </did>
+            <button class="avanzar-lista" onclick="avanzar()">&#10097;</button>
+        </div>
+    </div>
+</body>
+<script src="./javascript/indexSeriesAll.js"></script>
+</html>

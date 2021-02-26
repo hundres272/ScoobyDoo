@@ -15,7 +15,7 @@ function enviarDatos(){
         .then(res2 => {
             if(res2.status==='Usuario encontrado'){
                 localStorage.setItem("email",res2.email);
-                location.href = "index.html";
+                location.href = "indexSeriesAll.html";
             }else{
                 document.getElementById("error").innerText = res2.status;
             }
