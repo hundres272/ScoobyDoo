@@ -144,11 +144,11 @@ async function obtenerURL(value){
     return url.prueba.lista;
 }
 
-function anteriorVideo(){
+async function anteriorVideo(){
     if (posicion>0) {
         enviarDatos();
         posicion--;
-        videoActual();
+        await videoActual();
         var aux = videoTieneVisualizacion();
         if (aux!==-1) {
             var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
@@ -158,11 +158,11 @@ function anteriorVideo(){
     }
 }
 
-function siguienteVideo(){
+async function siguienteVideo(){
     if (posicion<videos.length) {
         enviarDatos();
         posicion++;
-        videoActual();
+        await videoActual();
         var aux = videoTieneVisualizacion();
         if (aux!==-1) {
             var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
@@ -188,7 +188,8 @@ function traerTiempo(){
         "email": localStorage.getItem("email"),
         "serie": nombreSerie
     };
-    fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
+    
+    fetch(`http://localhost:8000/${nombreSerie}`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers:{
@@ -199,7 +200,7 @@ function traerTiempo(){
     .then(res2 => {
         // console.log("datos traertiempo=");
         // console.log(res2);
-        console.log(res2);
+        console.log("res2: ",res2);
         if(res2.status!=='no encontrado'){
             localStorage.setItem("datosvideos", JSON.stringify(res2));
             var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
@@ -222,7 +223,7 @@ function traerTiempo(){
         document.getElementById("cargando").classList.add("invisible");
     })
 }
-
+// https://scoobyapphundres.herokuapp.com
 function obtenerParametroGet(url){
     // console.log(url.split("?")[1]);
     const paramget = url.split("?");
@@ -254,6 +255,7 @@ async function videoActual(){
     document.getElementById("title-cap").textContent = `${videos[posicion].id}. ${videos[posicion].nombre} `;
     source.setAttribute('src', await obtenerURL(posicion));
     video.appendChild(source);
+
     video.load();
     video.pause();
 }
@@ -284,7 +286,7 @@ function enviarDatos(){
     localStorage.setItem("datosvideos",JSON.stringify(data));
     // console.log("data: enviardatos=")
     // console.log(data);
-    fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
+    fetch(`http://localhost:8000/${nombreSerie}`,{
         method: 'PUT',
         body: JSON.stringify(data),
         headers:{
@@ -346,15 +348,7 @@ function cargarLista(){
 }
 var mediaqueryList = window.matchMedia("(max-width: 600px)");
 
-function cargarVideoEnPosicion(e){
-    posicion = parseInt(e)-1;
-    videoActual();
-    var aux = videoTieneVisualizacion();
-    if (aux!==-1) {
-        var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
-        video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
-    }
-    enviarDatos();
+async function cargarVideoEnPosicion(e){
     document.getElementById("listas-a").classList.remove("mostrar-lista-resp");
     if(mediaqueryList.matches){
         document.getElementById("btn-list-2").innerHTML = '&#9650; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
@@ -364,6 +358,15 @@ function cargarVideoEnPosicion(e){
     document.getElementById("btn-list").classList.remove("cambio-root");
     document.getElementById("listas-a").innerHTML = "";
     document.getElementById("btn-list").classList.remove("cambio-color-boton");
+    document.getElementById("video").classList.remove("video-z");
+    posicion = parseInt(e)-1;
+    await videoActual();
+    var aux = videoTieneVisualizacion();
+    if (aux!==-1) {
+        var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
+        video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+    }
+    enviarDatos();
 }
 
 function desplegarLista(){
@@ -410,7 +413,7 @@ if(mediaqueryList.matches) {
 }
 
 function home(){
-    location.href = 'indexSeriesAll.html'
+    location.href = 'indexSeriesAll.html';
 }
 
 // document.getElementById("title").textContent = `${nombreSerie}`;
