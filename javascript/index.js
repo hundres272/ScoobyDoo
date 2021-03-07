@@ -2,121 +2,122 @@ var posicion = 0;
 var nombreSerie = "";
 const video = document.getElementById('video');
 const source = document.createElement('source');
-const videos = [
-    {
-        id: '1',
-        nombre: 'La leyenda del caballero negro',
-        url: 'https://u.pcloud.link/publink/show?code=XZmVuuXZN1gJifHDpdXJetHoooqpfYtjQ0i7'
-    },
-    {
-        id: '2',
-        nombre: 'Una pista para Scooby-Doo',
-        url: 'https://u.pcloud.link/publink/show?code=XZn5fuXZQVmuvi786lhKGdxN2eLJBFd2Timk'
-    },
-    {
-        id: '3',
-        nombre: 'El Fantasma del Castillo',
-        url: 'https://u.pcloud.link/publink/show?code=XZjqbuXZ1DAeRhQJ4C833by70yKcCmFx084X'
-    },
-    {
-        id: '4',
-        nombre: 'El Fantasma de Ciudad de Oro',
-        url: 'https://u.pcloud.link/publink/show?code=XZi5fuXZzlysBFDNJxLMomy71x7R1ybzdny0'
-    },
-    {
-        id: '5',
-        nombre: 'El Señuelo',
-        url: 'https://u.pcloud.link/publink/show?code=XZRJfuXZXlDjQege7OYR0XK0rVpF0hEcXkaX'
-    },
-    {
-        id: '6',
-        nombre: 'Con mil demonios - Qué pasa aquí',
-        url: 'https://u.pcloud.link/publink/show?code=XZTJfuXZD4VTpNeKoE48t27sqcc3cFkiGizk'
-    },
-    {
-        id: '7',
-        nombre: 'Jamás persigas a un hombre mono',
-        url: 'https://u.pcloud.link/publink/show?code=XZKJfuXZ622pztQRRvYOuc6Mfg2piz6EtoQ7'
-    },
-    {
-        id: '8',
-        nombre: 'Falla divertida en los juegos mecánicos',
-        url: 'https://u.pcloud.link/publink/show?code=XZvJfuXZ38z6M6VXnzLOHx1GQPMvp0uiEuOX'
-    },
-    {
-        id: '9',
-        nombre: 'El teatro de los billetes falsos',
-        url: 'https://u.pcloud.link/publink/show?code=XZpFfuXZM01nOc49LkphmfzEwNGyfbJ6U2w7'
-    },
-    {
-        id: '10',
-        nombre: 'El caso del payaso Fantasma',
-        url: 'https://u.pcloud.link/publink/show?code=XZuFfuXZuG7yC23ATwjU1ox7U5q0fQOGG5SV'
-    },
-    {
-        id: '11',
-        nombre: 'El castillo de Frankenstein',
-        url: 'https://u.pcloud.link/publink/show?code=XZOFfuXZpfbltHFhmzLWYhhLt6GH7FEoEJyk'
-    },
-    {
-        id: '12',
-        nombre: 'Scooby-Doo y una momia también',
-        url: 'https://u.pcloud.link/publink/show?code=XZaFfuXZPDoDaP2OGDuUhsYHNiczDFMu8FTV'
-    },
-    {
-        id: '13',
-        nombre: 'Cómo pescar una bruja',
-        url: 'https://u.pcloud.link/publink/show?code=XZHpfuXZdPUpiaybEOjHxnYlr8dyHL6FHxny'
-    },{
-        id: '14',
-        nombre: 'El Fantasma del Aeropuerto Abandonado',
-        url: 'https://u.pcloud.link/publink/show?code=XZQpfuXZDlDGXXT0XmYyq1Y90Gxgb0xspdGX'
-    },{
-        id: '15',
-        nombre: 'Esfúmate Barco Fantasma',
-        url: 'https://u.pcloud.link/publink/show?code=XZhpfuXZb9usHxx8a9Frx6lTNjLBN7h7LRXy'
-    },{
-        id: '16',
-        nombre: 'Una Noche de Espanto, Causa Quebranto',
-        url: 'https://u.pcloud.link/publink/show?code=XZnpfuXZAqRpetYTjW8Lpp6UCjFaiVlhKxAX'
-    },{
-        id: '17',
-        nombre: 'El Fantasma de las Nieves',
-        url: 'https://u.pcloud.link/publink/show?code=XZapfuXZ6UOtrUJodbRkNAlMBLuTgm3p3LKy'
-    },{
-        id: '18',
-        nombre: 'El Espectro de Hyde',
-        url: 'https://u.pcloud.link/publink/show?code=XZopfuXZI6NqlrXFf0BNQEMtk4or5uQrR33y'
-    },{
-        id: '19',
-        nombre: 'La Máscara de Zen-Túo',
-        url: 'https://u.pcloud.link/publink/show?code=XZ0HfuXZ1Pd59no3x3ktgcjxLp8i6moUnRTX'
-    },{
-        id: '20',
-        nombre: 'El Papel Misterioso',
-        url: 'https://u.pcloud.link/publink/show?code=XZbHfuXZr0fTqw95SCpzLhyXKSXgB8f8yMCy'
-    },{
-        id: '21',
-        nombre: 'La Noche de los Pies Helados',
-        url: 'https://u.pcloud.link/publink/show?code=XZuHfuXZvKDl5k3xR7Xg8dNMexpvGSc17wU7'
-    },{
-        id: '22',
-        nombre: 'La Leyenda del Decapitado',
-        url: 'https://u.pcloud.link/publink/show?code=XZeHfuXZzd5nGo5Kj1YbRO4l1FSYTHrmGBCX'
-    },{
-        id: '23',
-        nombre: 'La Aldea Encantada',
-        url: 'https://u.pcloud.link/publink/show?code=XZgHfuXZy8292AoIDS5maqGkTyqmBjpd7ldV'
-    },{
-        id: '24',
-        nombre: 'Quién Teme al Lobo Feroz',
-        url: 'https://u.pcloud.link/publink/show?code=XZPHfuXZJg1HSKYf4TyjHWxNz3kEnpW771tV'
-    },{
-        id: '25',
-        nombre: 'No Juegues con un Fantasma',
-        url: 'https://u.pcloud.link/publink/show?code=XZKHfuXZljlcnSAh6wQbJJ7MMjT5SRRWdHRX'
-    }
-]
+let videos = [];
+// const videos = [
+//     {
+//         "id": "1",
+//         "nombre": "La leyenda del caballero negro",
+//         "url": "https://u.pcloud.link/publink/show?code=XZmVuuXZN1gJifHDpdXJetHoooqpfYtjQ0i7"
+//     },
+//     {
+//         "id": "2",
+//         "nombre": "Una pista para Scooby-Doo",
+//         "url": "https://u.pcloud.link/publink/show?code=XZn5fuXZQVmuvi786lhKGdxN2eLJBFd2Timk"
+//     },
+//     {
+//         "id": "3",
+//         "nombre": "El Fantasma del Castillo",
+//         "url": "https://u.pcloud.link/publink/show?code=XZjqbuXZ1DAeRhQJ4C833by70yKcCmFx084X"
+//     },
+//     {
+//         "id": "4",
+//         "nombre": "El Fantasma de Ciudad de Oro",
+//         "url": "https://u.pcloud.link/publink/show?code=XZi5fuXZzlysBFDNJxLMomy71x7R1ybzdny0"
+//     },
+//     {
+//         "id": "5",
+//         "nombre": "El Señuelo",
+//         "url": "https://u.pcloud.link/publink/show?code=XZRJfuXZXlDjQege7OYR0XK0rVpF0hEcXkaX"
+//     },
+//     {
+//         "id": "6",
+//         "nombre": "Con mil demonios - Qué pasa aquí",
+//         "url": "https://u.pcloud.link/publink/show?code=XZTJfuXZD4VTpNeKoE48t27sqcc3cFkiGizk"
+//     },
+//     {
+//         "id": "7",
+//         "nombre": "Jamás persigas a un hombre mono",
+//         "url": "https://u.pcloud.link/publink/show?code=XZKJfuXZ622pztQRRvYOuc6Mfg2piz6EtoQ7"
+//     },
+//     {
+//         "id": "8",
+//         "nombre": "Falla divertida en los juegos mecánicos",
+//         "url": "https://u.pcloud.link/publink/show?code=XZvJfuXZ38z6M6VXnzLOHx1GQPMvp0uiEuOX"
+//     },
+//     {
+//         "id": "9",
+//         "nombre": "El teatro de los billetes falsos",
+//         "url": "https://u.pcloud.link/publink/show?code=XZpFfuXZM01nOc49LkphmfzEwNGyfbJ6U2w7"
+//     },
+//     {
+//         "id": "10",
+//         "nombre": "El caso del payaso Fantasma",
+//         "url": "https://u.pcloud.link/publink/show?code=XZuFfuXZuG7yC23ATwjU1ox7U5q0fQOGG5SV"
+//     },
+//     {
+//         "id": "11",
+//         "nombre": "El castillo de Frankenstein",
+//         "url": "https://u.pcloud.link/publink/show?code=XZOFfuXZpfbltHFhmzLWYhhLt6GH7FEoEJyk"
+//     },
+//     {
+//         "id": "12",
+//         "nombre": "Scooby-Doo y una momia también",
+//         "url": "https://u.pcloud.link/publink/show?code=XZaFfuXZPDoDaP2OGDuUhsYHNiczDFMu8FTV"
+//     },
+//     {
+//         "id": "13",
+//         "nombre": "Cómo pescar una bruja",
+//         "url": "https://u.pcloud.link/publink/show?code=XZHpfuXZdPUpiaybEOjHxnYlr8dyHL6FHxny"
+//     },{
+//         "id": "14",
+//         "nombre": "El Fantasma del Aeropuerto Abandonado",
+//         "url": "https://u.pcloud.link/publink/show?code=XZQpfuXZDlDGXXT0XmYyq1Y90Gxgb0xspdGX"
+//     },{
+//         "id": "15",
+//         "nombre": "Esfúmate Barco Fantasma",
+//         "url": "https://u.pcloud.link/publink/show?code=XZhpfuXZb9usHxx8a9Frx6lTNjLBN7h7LRXy"
+//     },{
+//         "id": "16",
+//         "nombre": "Una Noche de Espanto, Causa Quebranto",
+//         "url": "https://u.pcloud.link/publink/show?code=XZnpfuXZAqRpetYTjW8Lpp6UCjFaiVlhKxAX"
+//     },{
+//         "id": "17",
+//         "nombre": "El Fantasma de las Nieves",
+//         "url": "https://u.pcloud.link/publink/show?code=XZapfuXZ6UOtrUJodbRkNAlMBLuTgm3p3LKy"
+//     },{
+//         "id": "18",
+//         "nombre": "El Espectro de Hyde",
+//         "url": "https://u.pcloud.link/publink/show?code=XZopfuXZI6NqlrXFf0BNQEMtk4or5uQrR33y"
+//     },{
+//         "id": "19",
+//         "nombre": "La Máscara de Zen-Túo",
+//         "url": "https://u.pcloud.link/publink/show?code=XZ0HfuXZ1Pd59no3x3ktgcjxLp8i6moUnRTX"
+//     },{
+//         "id": "20",
+//         "nombre": "El Papel Misterioso",
+//         "url": "https://u.pcloud.link/publink/show?code=XZbHfuXZr0fTqw95SCpzLhyXKSXgB8f8yMCy"
+//     },{
+//         "id": "21",
+//         "nombre": "La Noche de los Pies Helados",
+//         "url": "https://u.pcloud.link/publink/show?code=XZuHfuXZvKDl5k3xR7Xg8dNMexpvGSc17wU7"
+//     },{
+//         "id": "22",
+//         "nombre": "La Leyenda del Decapitado",
+//         "url": "https://u.pcloud.link/publink/show?code=XZeHfuXZzd5nGo5Kj1YbRO4l1FSYTHrmGBCX"
+//     },{
+//         "id": "23",
+//         "nombre": "La Aldea Encantada",
+//         "url": "https://u.pcloud.link/publink/show?code=XZgHfuXZy8292AoIDS5maqGkTyqmBjpd7ldV"
+//     },{
+//         "id": "24",
+//         "nombre": "Quién Teme al Lobo Feroz",
+//         "url": "https://u.pcloud.link/publink/show?code=XZPHfuXZJg1HSKYf4TyjHWxNz3kEnpW771tV"
+//     },{
+//         "id": "25",
+//         "nombre": "No Juegues con un Fantasma",
+//         "url": "https://u.pcloud.link/publink/show?code=XZKHfuXZljlcnSAh6wQbJJ7MMjT5SRRWdHRX"
+//     }
+// ]
 
 async function obtenerURL(value){
     var url = { prueba: {lista: []}};
@@ -178,10 +179,11 @@ function tiempoDeVisualizacion(){
     var minutes = Math.floor((value/60) % 60);
 }
 
-function traerTiempo(){
+async function traerTiempo(){
     var tiempo = null;
     // console.log(obtenerParametroGet(window.location.href));
     nombreSerie = obtenerParametroGet(window.location.href);
+    videos = await cargarDatosCapitulos();
     
     // console.log(window.location.href);
     var data = {
@@ -234,6 +236,23 @@ function obtenerParametroGet(url){
         paramget2 = paramget[1].split("=");
     }
     return paramget2[1];
+}
+async function cargarDatosCapitulos(){
+    var url = { prueba: {lista: []}};
+    // const parseName = videos[value].nombre.split(" ");
+    // var nombreParseado = "";
+    // nombreParseado = videos[value].id + ".";
+    // for (let i = 0; i < parseName.length; i++) {
+    //     nombreParseado = nombreParseado + '%20' + parseName[i];
+    // }
+    // url = `https://liveudenaredu-my.sharepoint.com/personal/hugoandres272_udenar_edu_co/Documents/Scooby/${nombreParseado}.mp4?App=OneDriveWebVideo`;
+    await fetch(`https://scoobyapphundres.herokuapp.com/capitulos/${nombreSerie}`)
+    .then(res=>res.json())
+    .then(res2=>{
+        console.log(JSON.parse(res2));
+        url.prueba.lista = JSON.parse(res2);
+    })
+    return url.prueba.lista;
 }
 
 function videoTieneVisualizacion(){
