@@ -4,7 +4,8 @@ function enviarDatos(){
         "password": document.getElementById("password").value
     }
     if (datos.email!=="" && datos.password!=="") {
-        fetch('https://scoobyapphundres.herokuapp.com/ingreso',{
+        // fetch('https://scoobyapphundres.herokuapp.com/ingreso',{
+        fetch('http://localhost:8000/ingreso',{
             method: 'POST',
             body: JSON.stringify(datos),
             headers:{
@@ -15,6 +16,8 @@ function enviarDatos(){
         .then(res2 => {
             if(res2.status==='Usuario encontrado'){
                 localStorage.setItem("email",res2.email);
+                console.log(res2.token);
+                localStorage.setItem("x-access-token",res2.token);
                 location.href = "indexSeriesAll.html";
             }else{
                 document.getElementById("error").innerText = res2.status;

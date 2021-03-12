@@ -7,115 +7,140 @@ let videos = [];
 //     {
 //         "id": "1",
 //         "nombre": "La leyenda del caballero negro",
-//         "url": "https://u.pcloud.link/publink/show?code=XZmVuuXZN1gJifHDpdXJetHoooqpfYtjQ0i7"
+//         "url": "https://u.pcloud.link/publink/show?code=XZmVuuXZN1gJifHDpdXJetHoooqpfYtjQ0i7",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "2",
 //         "nombre": "Una pista para Scooby-Doo",
-//         "url": "https://u.pcloud.link/publink/show?code=XZn5fuXZQVmuvi786lhKGdxN2eLJBFd2Timk"
+//         "url": "https://u.pcloud.link/publink/show?code=XZn5fuXZQVmuvi786lhKGdxN2eLJBFd2Timk",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "3",
 //         "nombre": "El Fantasma del Castillo",
-//         "url": "https://u.pcloud.link/publink/show?code=XZjqbuXZ1DAeRhQJ4C833by70yKcCmFx084X"
+//         "url": "https://u.pcloud.link/publink/show?code=XZjqbuXZ1DAeRhQJ4C833by70yKcCmFx084X",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "4",
 //         "nombre": "El Fantasma de Ciudad de Oro",
-//         "url": "https://u.pcloud.link/publink/show?code=XZi5fuXZzlysBFDNJxLMomy71x7R1ybzdny0"
+//         "url": "https://u.pcloud.link/publink/show?code=XZi5fuXZzlysBFDNJxLMomy71x7R1ybzdny0",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "5",
 //         "nombre": "El Señuelo",
-//         "url": "https://u.pcloud.link/publink/show?code=XZRJfuXZXlDjQege7OYR0XK0rVpF0hEcXkaX"
+//         "url": "https://u.pcloud.link/publink/show?code=XZRJfuXZXlDjQege7OYR0XK0rVpF0hEcXkaX",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "6",
 //         "nombre": "Con mil demonios - Qué pasa aquí",
-//         "url": "https://u.pcloud.link/publink/show?code=XZTJfuXZD4VTpNeKoE48t27sqcc3cFkiGizk"
+//         "url": "https://u.pcloud.link/publink/show?code=XZTJfuXZD4VTpNeKoE48t27sqcc3cFkiGizk",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "7",
 //         "nombre": "Jamás persigas a un hombre mono",
-//         "url": "https://u.pcloud.link/publink/show?code=XZKJfuXZ622pztQRRvYOuc6Mfg2piz6EtoQ7"
+//         "url": "https://u.pcloud.link/publink/show?code=XZKJfuXZ622pztQRRvYOuc6Mfg2piz6EtoQ7",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "8",
 //         "nombre": "Falla divertida en los juegos mecánicos",
-//         "url": "https://u.pcloud.link/publink/show?code=XZvJfuXZ38z6M6VXnzLOHx1GQPMvp0uiEuOX"
+//         "url": "https://u.pcloud.link/publink/show?code=XZvJfuXZ38z6M6VXnzLOHx1GQPMvp0uiEuOX",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "9",
 //         "nombre": "El teatro de los billetes falsos",
-//         "url": "https://u.pcloud.link/publink/show?code=XZpFfuXZM01nOc49LkphmfzEwNGyfbJ6U2w7"
+//         "url": "https://u.pcloud.link/publink/show?code=XZpFfuXZM01nOc49LkphmfzEwNGyfbJ6U2w7",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "10",
 //         "nombre": "El caso del payaso Fantasma",
-//         "url": "https://u.pcloud.link/publink/show?code=XZuFfuXZuG7yC23ATwjU1ox7U5q0fQOGG5SV"
+//         "url": "https://u.pcloud.link/publink/show?code=XZuFfuXZuG7yC23ATwjU1ox7U5q0fQOGG5SV",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "11",
 //         "nombre": "El castillo de Frankenstein",
-//         "url": "https://u.pcloud.link/publink/show?code=XZOFfuXZpfbltHFhmzLWYhhLt6GH7FEoEJyk"
+//         "url": "https://u.pcloud.link/publink/show?code=XZOFfuXZpfbltHFhmzLWYhhLt6GH7FEoEJyk",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "12",
 //         "nombre": "Scooby-Doo y una momia también",
-//         "url": "https://u.pcloud.link/publink/show?code=XZaFfuXZPDoDaP2OGDuUhsYHNiczDFMu8FTV"
+//         "url": "https://u.pcloud.link/publink/show?code=XZaFfuXZPDoDaP2OGDuUhsYHNiczDFMu8FTV",
+//         "skipTime": "60"
 //     },
 //     {
 //         "id": "13",
 //         "nombre": "Cómo pescar una bruja",
-//         "url": "https://u.pcloud.link/publink/show?code=XZHpfuXZdPUpiaybEOjHxnYlr8dyHL6FHxny"
+//         "url": "https://u.pcloud.link/publink/show?code=XZHpfuXZdPUpiaybEOjHxnYlr8dyHL6FHxny",
+//         "skipTime": "60"
 //     },{
 //         "id": "14",
 //         "nombre": "El Fantasma del Aeropuerto Abandonado",
-//         "url": "https://u.pcloud.link/publink/show?code=XZQpfuXZDlDGXXT0XmYyq1Y90Gxgb0xspdGX"
+//         "url": "https://u.pcloud.link/publink/show?code=XZQpfuXZDlDGXXT0XmYyq1Y90Gxgb0xspdGX",
+//         "skipTime": "60"
 //     },{
 //         "id": "15",
 //         "nombre": "Esfúmate Barco Fantasma",
-//         "url": "https://u.pcloud.link/publink/show?code=XZhpfuXZb9usHxx8a9Frx6lTNjLBN7h7LRXy"
+//         "url": "https://u.pcloud.link/publink/show?code=XZhpfuXZb9usHxx8a9Frx6lTNjLBN7h7LRXy",
+//         "skipTime": "60"
 //     },{
 //         "id": "16",
 //         "nombre": "Una Noche de Espanto, Causa Quebranto",
-//         "url": "https://u.pcloud.link/publink/show?code=XZnpfuXZAqRpetYTjW8Lpp6UCjFaiVlhKxAX"
+//         "url": "https://u.pcloud.link/publink/show?code=XZnpfuXZAqRpetYTjW8Lpp6UCjFaiVlhKxAX",
+//         "skipTime": "60"
 //     },{
 //         "id": "17",
 //         "nombre": "El Fantasma de las Nieves",
-//         "url": "https://u.pcloud.link/publink/show?code=XZapfuXZ6UOtrUJodbRkNAlMBLuTgm3p3LKy"
+//         "url": "https://u.pcloud.link/publink/show?code=XZapfuXZ6UOtrUJodbRkNAlMBLuTgm3p3LKy",
+//         "skipTime": "60"
 //     },{
 //         "id": "18",
 //         "nombre": "El Espectro de Hyde",
-//         "url": "https://u.pcloud.link/publink/show?code=XZopfuXZI6NqlrXFf0BNQEMtk4or5uQrR33y"
+//         "url": "https://u.pcloud.link/publink/show?code=XZopfuXZI6NqlrXFf0BNQEMtk4or5uQrR33y",
+//         "skipTime": "60"
 //     },{
 //         "id": "19",
 //         "nombre": "La Máscara de Zen-Túo",
-//         "url": "https://u.pcloud.link/publink/show?code=XZ0HfuXZ1Pd59no3x3ktgcjxLp8i6moUnRTX"
+//         "url": "https://u.pcloud.link/publink/show?code=XZ0HfuXZ1Pd59no3x3ktgcjxLp8i6moUnRTX",
+//         "skipTime": "60"
 //     },{
 //         "id": "20",
 //         "nombre": "El Papel Misterioso",
-//         "url": "https://u.pcloud.link/publink/show?code=XZbHfuXZr0fTqw95SCpzLhyXKSXgB8f8yMCy"
+//         "url": "https://u.pcloud.link/publink/show?code=XZbHfuXZr0fTqw95SCpzLhyXKSXgB8f8yMCy",
+//         "skipTime": "60"
 //     },{
 //         "id": "21",
 //         "nombre": "La Noche de los Pies Helados",
-//         "url": "https://u.pcloud.link/publink/show?code=XZuHfuXZvKDl5k3xR7Xg8dNMexpvGSc17wU7"
+//         "url": "https://u.pcloud.link/publink/show?code=XZuHfuXZvKDl5k3xR7Xg8dNMexpvGSc17wU7",
+//         "skipTime": "60"
 //     },{
 //         "id": "22",
 //         "nombre": "La Leyenda del Decapitado",
-//         "url": "https://u.pcloud.link/publink/show?code=XZeHfuXZzd5nGo5Kj1YbRO4l1FSYTHrmGBCX"
+//         "url": "https://u.pcloud.link/publink/show?code=XZeHfuXZzd5nGo5Kj1YbRO4l1FSYTHrmGBCX",
+//         "skipTime": "60"
 //     },{
 //         "id": "23",
 //         "nombre": "La Aldea Encantada",
-//         "url": "https://u.pcloud.link/publink/show?code=XZgHfuXZy8292AoIDS5maqGkTyqmBjpd7ldV"
+//         "url": "https://u.pcloud.link/publink/show?code=XZgHfuXZy8292AoIDS5maqGkTyqmBjpd7ldV",
+//         "skipTime": "60"
 //     },{
 //         "id": "24",
 //         "nombre": "Quién Teme al Lobo Feroz",
-//         "url": "https://u.pcloud.link/publink/show?code=XZPHfuXZJg1HSKYf4TyjHWxNz3kEnpW771tV"
+//         "url": "https://u.pcloud.link/publink/show?code=XZPHfuXZJg1HSKYf4TyjHWxNz3kEnpW771tV",
+//         "skipTime": "60"
 //     },{
 //         "id": "25",
 //         "nombre": "No Juegues con un Fantasma",
-//         "url": "https://u.pcloud.link/publink/show?code=XZKHfuXZljlcnSAh6wQbJJ7MMjT5SRRWdHRX"
+//         "url": "https://u.pcloud.link/publink/show?code=XZKHfuXZljlcnSAh6wQbJJ7MMjT5SRRWdHRX",
+//         "skipTime": "60"
 //     }
 // ]
 
@@ -186,23 +211,32 @@ async function traerTiempo(){
     videos = await cargarDatosCapitulos();
     
     // console.log(window.location.href);
+    try {
+        if (JSON.parse(localStorage.getItem("datosvideos")).serie!==nombreSerie) {
+            localStorage.setItem("datosvideos", null);
+        }
+    } catch (error) {
+        console.log("parse fallido");
+    }
     var data = {
         "email": localStorage.getItem("email"),
         "serie": nombreSerie
     };
     
     fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
+    // fetch(`http://localhost:8000/${nombreSerie}`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers:{
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'x-access-token': localStorage.getItem("x-access-token")
         }
     })
     .then(res => res.json())
     .then(res2 => {
         // console.log("datos traertiempo=");
         // console.log(res2);
-        console.log("res2: ",res2);
+        // console.log("res2: ",res2);
         if(res2.status!=='no encontrado'){
             localStorage.setItem("datosvideos", JSON.stringify(res2));
             var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
@@ -215,7 +249,12 @@ async function traerTiempo(){
             var aux = videoTieneVisualizacion();
             // videoActual();
             if (aux!==-1) {
-                video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+                const time = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+                video.currentTime = time;
+                // console.log();
+                if (parseInt(time)>parseInt(videos[posicion].skipTime)) {
+                    document.getElementById("skip").classList.add("invisible");
+                }
             }
             videoActual();
         }else{
@@ -230,7 +269,7 @@ function obtenerParametroGet(url){
     const paramget = url.split("?");
     var paramget2 = "";
     if(paramget[1]===undefined){
-        console.log("asdfasdfkl");
+        // console.log("asdfasdfkl");
         window.location.href = "indexSeriesAll.html";
     }else{
         paramget2 = paramget[1].split("=");
@@ -246,10 +285,16 @@ async function cargarDatosCapitulos(){
     //     nombreParseado = nombreParseado + '%20' + parseName[i];
     // }
     // url = `https://liveudenaredu-my.sharepoint.com/personal/hugoandres272_udenar_edu_co/Documents/Scooby/${nombreParseado}.mp4?App=OneDriveWebVideo`;
-    await fetch(`https://scoobyapphundres.herokuapp.com/capitulos/${nombreSerie}`)
+    await fetch(`https://scoobyapphundres.herokuapp.com/capitulos/${nombreSerie}`,{
+    // await fetch(`http://localhost:8000/capitulos/${nombreSerie}`,{
+        headers:{
+            'Content-Type': 'application/json',
+            'x-access-token': localStorage.getItem("x-access-token")
+        }
+    })
     .then(res=>res.json())
     .then(res2=>{
-        console.log(JSON.parse(res2));
+        // console.log(JSON.parse(res2));
         url.prueba.lista = JSON.parse(res2);
     })
     return url.prueba.lista;
@@ -282,6 +327,20 @@ video.onpause = function(){
     enviarDatos();
 }
 
+video.onplay = async function(){
+    // var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
+    // const timeT = (datosLocal.datosSerieVideos.videos[posicion].minuto*60)+datosLocal.datosSerieVideos.videos[posicion].segundos;
+    // if(datosLocal!==null){
+    
+    //     if (parseInt(time)>parseInt(videos[posicion].skipTime)) {
+    //         document.getElementById("skip").classList.add("invisible");
+    //     }
+    //     await new Promise(resolve => setTimeout(resolve, a));
+    // }else{
+    //     await time(timeT);
+    // }
+}
+
 document.addEventListener("load",traerTiempo());
 function salir(){
     var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
@@ -308,7 +367,8 @@ function enviarDatos(){
         method: 'PUT',
         body: JSON.stringify(data),
         headers:{
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'x-access-token': localStorage.getItem("x-access-token")
         }
     })
     .then(res => res.json())
@@ -323,6 +383,8 @@ function llenarListaVideos(){
     var minutes = Math.floor((value/60) % 60);
 
     localstorage = JSON.parse(localStorage.getItem("datosvideos"));
+    // console.log("localstorage");
+    // console.log(localstorage);
     if (localstorage===null) {
         aux.push({
             "video": posicion,
@@ -349,6 +411,7 @@ function llenarListaVideos(){
 function cerrarSesion(){
     localStorage.removeItem("email");
     localStorage.removeItem("datosvideos");
+    localStorage.removeItem("x-access-token");
     location.href = "ingreso.html";
 }
 
@@ -432,6 +495,12 @@ if(mediaqueryList.matches) {
 
 function home(){
     location.href = 'indexSeriesAll.html';
+}
+
+function cambiarTiempoSkip(){
+    video.currentTime = videos[posicion].skipTime;
+    document.getElementById("skip").classList.add("invisible");
+    enviarDatos();
 }
 
 // document.getElementById("title").textContent = `${nombreSerie}`;
