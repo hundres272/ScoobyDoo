@@ -327,20 +327,6 @@ video.onpause = function(){
     enviarDatos();
 }
 
-video.onplay = async function(){
-    // var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
-    // const timeT = (datosLocal.datosSerieVideos.videos[posicion].minuto*60)+datosLocal.datosSerieVideos.videos[posicion].segundos;
-    // if(datosLocal!==null){
-    
-    //     if (parseInt(time)>parseInt(videos[posicion].skipTime)) {
-    //         document.getElementById("skip").classList.add("invisible");
-    //     }
-    //     await new Promise(resolve => setTimeout(resolve, a));
-    // }else{
-    //     await time(timeT);
-    // }
-}
-
 document.addEventListener("load",traerTiempo());
 function salir(){
     var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
@@ -364,6 +350,7 @@ function enviarDatos(){
     // console.log("data: enviardatos=")
     // console.log(data);
     fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
+    // fetch(`http://localhost:8000/${nombreSerie}`,{
         method: 'PUT',
         body: JSON.stringify(data),
         headers:{

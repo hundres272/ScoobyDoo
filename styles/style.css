@@ -217,6 +217,25 @@ a {
         max-width: 100vw;
         height: auto;
     }
+    .contenedor-video {
+        /* width: 530px; */
+        position: relative;
+        width: calc(100vw);
+        height: calc(80vw);
+    }
+    #video {
+        /* max-width: 530px; */
+        max-width: calc(100vw);
+        width: 100%;
+        height: calc(80vw);
+    }
+    #skip {
+        position: absolute;
+        right: 30px;
+        bottom: 30%;
+        user-select: none;
+        font-size: .8em;
+    }
     .button {
         display: inline;
         margin-top: 2vh;
