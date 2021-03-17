@@ -185,23 +185,29 @@ async function anteriorVideo(){
 }
 
 async function siguienteVideo(){
-    if (posicion<videos.length) {
-        enviarDatos();
-        posicion++;
-        await videoActual();
-        var aux = videoTieneVisualizacion();
-        if (aux!==-1) {
-            var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
-            video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
-        }
-        enviarDatos();
-    }
+    // if (posicion<videos.length) {
+    //     enviarDatos();
+    //     posicion++;
+    //     await videoActual();
+    //     var aux = videoTieneVisualizacion();
+    //     if (aux!==-1) {
+    //         var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
+    //         video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+    //     }
+    //     enviarDatos();
+    // }
+    console.log(video);
+    tiempoDeVisualizacion();
 }
 
 function tiempoDeVisualizacion(){
     var value = video.currentTime;
     var seconds = Math.floor(value % 60);
     var minutes = Math.floor((value/60) % 60);
+    var hours = Math.floor(value*3600);
+    console.log("value "+value);
+    console.log("seconds "+seconds);
+    console.log("minutes "+minutes);
 }
 
 async function traerTiempo(){
@@ -247,11 +253,15 @@ async function traerTiempo(){
             }
             
             var aux = videoTieneVisualizacion();
-            // videoActual();
             if (aux!==-1) {
-                const time = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+                var time = 0;
+                var horas = 0;
+                console.log(datosLocal.datosSerieVideos.videos[aux].horas);
+                if (datosLocal.datosSerieVideos.videos[aux].horas!==undefined) {
+                    horas = datosLocal.datosSerieVideos.videos[aux].horas;
+                }
+                time = (horas*3600)+(datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
                 video.currentTime = time;
-                // console.log();
                 if (parseInt(time)>parseInt(videos[posicion].skipTime)) {
                     document.getElementById("skip").classList.add("invisible");
                 }
@@ -261,7 +271,7 @@ async function traerTiempo(){
             posicion = 0;
             videoActual();
         }
-        document.getElementById("cargando").classList.add("invisible");
+        // document.getElementById("cargando").classList.add("invisible");
     })
 }
 function obtenerParametroGet(url){
@@ -368,6 +378,7 @@ function llenarListaVideos(){
     var value = video.currentTime;
     var seconds = Math.floor(value % 60);
     var minutes = Math.floor((value/60) % 60);
+    var hours = Math.floor(value/3600);
 
     localstorage = JSON.parse(localStorage.getItem("datosvideos"));
     // console.log("localstorage");
@@ -375,6 +386,7 @@ function llenarListaVideos(){
     if (localstorage===null) {
         aux.push({
             "video": posicion,
+            "horas": hours,
             "minuto": minutes,
             "segundos": seconds
         });
@@ -386,6 +398,7 @@ function llenarListaVideos(){
         }
         aux.push({
             "video": posicion,
+            "horas": hours,
             "minuto": minutes,
             "segundos": seconds
         });
@@ -435,6 +448,10 @@ async function cargarVideoEnPosicion(e){
         video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
     }
     enviarDatos();
+}
+
+video.oncanplay = function(){
+    document.getElementById("cargando").classList.add("invisible");
 }
 
 function desplegarLista(){
