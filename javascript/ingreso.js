@@ -25,3 +25,9 @@ function enviarDatos(){
         })
     }
 }
+
+document.addEventListener('keyup',(e)=>{
+    if (e.code === "Enter") {
+        enviarDatos();
+    }
+})
