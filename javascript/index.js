@@ -3,6 +3,7 @@ var nombreSerie = "";
 const video = document.getElementById('video');
 const source = document.createElement('source');
 let videos = [];
+var flag = true;
 // const videos = [
 //     {
 //         "id": "1",
@@ -144,6 +145,20 @@ let videos = [];
 //     }
 // ]
 
+async function quitarSaltarIntro() {
+    return await new Promise(resolve => {
+        const interval = setInterval(() => {
+        if (video.currentTime>=parseInt(videos[posicion].skipTime)) {
+            document.getElementById("skip").classList.add("invisible");
+            flag=false;
+            clearInterval(interval);
+        }
+      }, 2000);
+    });
+}
+
+quitarSaltarIntro();
+
 async function obtenerURL(value){
     var url = { prueba: {lista: []}};
     // const parseName = videos[value].nombre.split(" ");
@@ -185,19 +200,17 @@ async function anteriorVideo(){
 }
 
 async function siguienteVideo(){
-    // if (posicion<videos.length) {
-    //     enviarDatos();
-    //     posicion++;
-    //     await videoActual();
-    //     var aux = videoTieneVisualizacion();
-    //     if (aux!==-1) {
-    //         var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
-    //         video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
-    //     }
-    //     enviarDatos();
-    // }
-    console.log(video);
-    tiempoDeVisualizacion();
+    if (posicion<videos.length) {
+        enviarDatos();
+        posicion++;
+        await videoActual();
+        var aux = videoTieneVisualizacion();
+        if (aux!==-1) {
+            var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
+            video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+        }
+        enviarDatos();
+    }
 }
 
 function tiempoDeVisualizacion(){
@@ -205,24 +218,18 @@ function tiempoDeVisualizacion(){
     var seconds = Math.floor(value % 60);
     var minutes = Math.floor((value/60) % 60);
     var hours = Math.floor(value*3600);
-    console.log("value "+value);
-    console.log("seconds "+seconds);
-    console.log("minutes "+minutes);
 }
 
 async function traerTiempo(){
     var tiempo = null;
-    // console.log(obtenerParametroGet(window.location.href));
     nombreSerie = obtenerParametroGet(window.location.href);
     videos = await cargarDatosCapitulos();
-    
-    // console.log(window.location.href);
     try {
         if (JSON.parse(localStorage.getItem("datosvideos")).serie!==nombreSerie) {
             localStorage.setItem("datosvideos", null);
         }
     } catch (error) {
-        console.log("parse fallido");
+        console.error("Parse fallido: "+error);
     }
     var data = {
         "email": localStorage.getItem("email"),
@@ -230,7 +237,6 @@ async function traerTiempo(){
     };
     
     fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
-    // fetch(`http://localhost:8000/${nombreSerie}`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers:{
@@ -240,9 +246,6 @@ async function traerTiempo(){
     })
     .then(res => res.json())
     .then(res2 => {
-        // console.log("datos traertiempo=");
-        // console.log(res2);
-        // console.log("res2: ",res2);
         if(res2.status!=='no encontrado'){
             localStorage.setItem("datosvideos", JSON.stringify(res2));
             var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
@@ -256,13 +259,12 @@ async function traerTiempo(){
             if (aux!==-1) {
                 var time = 0;
                 var horas = 0;
-                console.log(datosLocal.datosSerieVideos.videos[aux].horas);
                 if (datosLocal.datosSerieVideos.videos[aux].horas!==undefined) {
                     horas = datosLocal.datosSerieVideos.videos[aux].horas;
                 }
                 time = (horas*3600)+(datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
                 video.currentTime = time;
-                if (parseInt(time)>parseInt(videos[posicion].skipTime)) {
+                if (parseInt(time)>=parseInt(videos[posicion].skipTime)) {
                     document.getElementById("skip").classList.add("invisible");
                 }
             }
@@ -271,15 +273,12 @@ async function traerTiempo(){
             posicion = 0;
             videoActual();
         }
-        // document.getElementById("cargando").classList.add("invisible");
     })
 }
 function obtenerParametroGet(url){
-    // console.log(url.split("?")[1]);
     const paramget = url.split("?");
     var paramget2 = "";
     if(paramget[1]===undefined){
-        // console.log("asdfasdfkl");
         window.location.href = "indexSeriesAll.html";
     }else{
         paramget2 = paramget[1].split("=");
@@ -288,15 +287,7 @@ function obtenerParametroGet(url){
 }
 async function cargarDatosCapitulos(){
     var url = { prueba: {lista: []}};
-    // const parseName = videos[value].nombre.split(" ");
-    // var nombreParseado = "";
-    // nombreParseado = videos[value].id + ".";
-    // for (let i = 0; i < parseName.length; i++) {
-    //     nombreParseado = nombreParseado + '%20' + parseName[i];
-    // }
-    // url = `https://liveudenaredu-my.sharepoint.com/personal/hugoandres272_udenar_edu_co/Documents/Scooby/${nombreParseado}.mp4?App=OneDriveWebVideo`;
     await fetch(`https://scoobyapphundres.herokuapp.com/capitulos/${nombreSerie}`,{
-    // await fetch(`http://localhost:8000/capitulos/${nombreSerie}`,{
         headers:{
             'Content-Type': 'application/json',
             'x-access-token': localStorage.getItem("x-access-token")
@@ -304,7 +295,6 @@ async function cargarDatosCapitulos(){
     })
     .then(res=>res.json())
     .then(res2=>{
-        // console.log(JSON.parse(res2));
         url.prueba.lista = JSON.parse(res2);
     })
     return url.prueba.lista;
@@ -357,10 +347,7 @@ function enviarDatos(){
         }
     };
     localStorage.setItem("datosvideos",JSON.stringify(data));
-    // console.log("data: enviardatos=")
-    // console.log(data);
     fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
-    // fetch(`http://localhost:8000/${nombreSerie}`,{
         method: 'PUT',
         body: JSON.stringify(data),
         headers:{
@@ -381,8 +368,6 @@ function llenarListaVideos(){
     var hours = Math.floor(value/3600);
 
     localstorage = JSON.parse(localStorage.getItem("datosvideos"));
-    // console.log("localstorage");
-    // console.log(localstorage);
     if (localstorage===null) {
         aux.push({
             "video": posicion,
@@ -403,8 +388,6 @@ function llenarListaVideos(){
             "segundos": seconds
         });
     }
-    // console.log("aux");
-    // console.log(aux);
     return aux;
 }
 
@@ -455,7 +438,6 @@ video.oncanplay = function(){
 }
 
 function desplegarLista(){
-    // console.log(document.querySelector("#btn-list.cambio-root"));
     if(mediaqueryList.matches){
         if(document.querySelector("#listas-a.mostrar-lista-resp")!==null){
             document.getElementById("listas-a").classList.remove("mostrar-lista-resp");
@@ -464,11 +446,13 @@ function desplegarLista(){
             document.getElementById("listas-a").innerHTML = "";
             document.getElementById("btn-list").classList.remove("cambio-color-boton");
             document.getElementById("video").classList.remove("video-z");
+            document.getElementById("skip").classList.remove("skip-z");
         }else{
             document.getElementById("btn-list-2").innerHTML = '&#9660; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
             document.getElementById("btn-list").classList.add("cambio-color-boton");
             document.getElementById("listas-a").classList.add("mostrar-lista-resp");
             document.getElementById("video").classList.add("video-z");
+            document.getElementById("skip").classList.add("skip-z");
             cargarLista();
         }
     }else{
@@ -507,8 +491,5 @@ function cambiarTiempoSkip(){
     enviarDatos();
 }
 
-// document.getElementById("title").textContent = `${nombreSerie}`;
-// document.getElementById("title-cap").textContent = `${videos[posicion].id}. ${videos[posicion].nombre} `;
-// source.setAttribute('src', obtenerURL(posicion));
 source.setAttribute('type', 'video/mp4');
 video.appendChild(source);

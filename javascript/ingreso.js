@@ -18,7 +18,7 @@ function enviarDatos(){
                 localStorage.setItem("email",res2.email);
                 console.log(res2.token);
                 localStorage.setItem("x-access-token",res2.token);
-                location.href = "indexSeriesAll.html";
+                window.location.href = "indexSeriesAll.html";
             }else{
                 document.getElementById("error").innerText = res2.status;
             }
