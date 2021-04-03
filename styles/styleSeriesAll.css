@@ -28,6 +28,10 @@ h1,h2 {
     /* align-items: center; */
     /* text-align: center; */
 }
+#logo-menu {
+    height: 40px;
+    margin-left: 5%;
+}
 .list {
     display: flex;
     flex-direction: column;

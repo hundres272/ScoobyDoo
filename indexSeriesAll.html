@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scooby-Doo</title>
+    <title>Inicio</title>
     <link rel="stylesheet" href="./styles/styleSeriesAll.css">
+    <link rel="shortcut icon" href="./images/iconfavi.ico" type="image/x-icon">
+
     <script>
         var email = localStorage.getItem("email");
         if(email===null){
@@ -15,6 +17,8 @@
 <body onbeforeunload="return salir()">
     <div class="center">
         <div class="menu">
+            <img id="logo-menu" src="./images/logoletrag.png" />
+            <!-- <img id="logo-menu" src="./images/logoRed.png" /> -->
             <button class="cerrar-sesion left" onclick="home()">Inicio</button>
             <button class="cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
         </div>
