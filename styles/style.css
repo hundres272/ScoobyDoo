@@ -288,4 +288,10 @@ audio {
     .cambio-color-boton {
         background-color:  #4e9bb9ec;
     }
+    audio {
+        margin: 20px 10%;
+    }
+    .invisible {
+        display: none;
+    }
 }
