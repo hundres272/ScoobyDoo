@@ -194,6 +194,10 @@ a {
 .invisible {
     display: none;
 }
+audio {
+    width: 80%;
+    margin: 230px 10%;
+}
 .remarcar {
     background-color: #7ab2c9ec;
 }

@@ -30,15 +30,18 @@
             <div class="fixed-center" id="cargando">Cargando ...</div>
             <h1 id="title"></h1>
             <h2 id="title-cap"></h2>
+            
             <div class="controls-video">
                 <button id="btn-1" class="button" onclick="anteriorVideo()">Anterior</button>
                 <div class="contenedor-video">
                     <video id="video" controls autoplay  width="530px" height="400px" name="media" controlslist="nodownload"></video>
+                    <audio id="audio" controls="" controlslist="nodownload"></audio>
                     <button id="skip" onclick="cambiarTiempoSkip()">Saltar intro</button>
                 </div>
                 <div id="modo-responsive">
                     <button id="btn-2" class="button" onclick="anteriorVideo()">Anterior</button>
-                    <button class="button" onclick="siguienteVideo()">Siguiente</button>
+                    <button id="btn-sig" class="button" onclick="siguienteVideo()">Siguiente</button>
+                    <button id="siguienteSkip" class="button invisible" onclick="siguienteVideo()">Siguiente en <spam id="clock"></spam></button>
                 </div>
             </div>
         </div>
