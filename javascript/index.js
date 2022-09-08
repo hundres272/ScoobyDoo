@@ -122,8 +122,10 @@ async function siguienteVideo(){
             var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
             if(esVideo) {
                 video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+                await video.play();
             }else{
                 audio.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
+                await audio.play();
             }
         }
         enviarDatos();
@@ -237,7 +239,7 @@ function videoTieneVisualizacion(){
 }
 
 async function videoActual(){
-    document.getElementById("title").textContent = `${nombreSerie}`;
+    // document.getElementById("title").textContent = `${nombreSerie}`;
     document.getElementById("title-cap").textContent = `${videos[posicion].id}. ${videos[posicion].nombre} `;
     if(esVideo){
         source.setAttribute('src', await obtenerURL(posicion));
