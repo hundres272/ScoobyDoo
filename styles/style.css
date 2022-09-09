@@ -290,7 +290,7 @@ audio {
     }
     audio {
         margin: 20px 10%;
-        z-index: -80;
+        /* z-index: -80; */
     }
     .invisible {
         display: none;
