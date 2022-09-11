@@ -43,7 +43,7 @@ async function finalRecurso(time) {
 }
 
 async function timeTen(){
-    var timeTemp = 10;
+    var timeTemp = esVideo ? 10 : 5;
     siguienteSkip.classList.remove('invisible');
     for (let i = 0; i <= timeTemp; i++) {
         await promise(timeTemp-i)
