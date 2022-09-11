@@ -191,15 +191,51 @@ a {
     align-items: center;
     z-index: 1;
 }
-.invisible {
-    display: none;
-}
 audio {
     width: 80%;
     margin: 230px 10%;
 }
 .remarcar {
     background-color: #7ab2c9ec;
+}
+.siguienteSkip {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(135, 179, 184, 0.792);
+}
+.next {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    background-color: rgb(60, 114, 172);
+    color: white;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.next:hover {
+    background-color: rgb(56, 82, 110);
+}
+.cancelSkipAuto {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(221, 42, 42);
+}
+.cancelSkipAuto:hover {
+    background-color: rgb(134, 60, 60);
+}
+.invisible {
+    display: none;
 }
 @media (max-width: 600px) {
     :root {

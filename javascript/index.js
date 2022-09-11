@@ -8,6 +8,7 @@ const btnSig = document.getElementById('btn-sig');
 var esVideo = true;
 let videos = [];
 var flag = true;
+var autoNext = true;
 
 async function quitarSaltarIntro() {
     return await new Promise(resolve => {
@@ -44,14 +45,15 @@ async function finalRecurso(time) {
 async function timeTen(){
     var timeTemp = 10;
     siguienteSkip.classList.remove('invisible');
-    btnSig.classList.add('invisible');
     for (let i = 0; i <= timeTemp; i++) {
         await promise(timeTemp-i)
         .then(res => {
             clock.innerHTML = res;
         })
     }
-    siguienteVideo();
+    if(autoNext){
+        siguienteVideo();
+    }
 }
 
 function promise(timeSegundos) {
@@ -122,15 +124,18 @@ async function siguienteVideo(){
             var datosLocal = JSON.parse(localStorage.getItem("datosvideos"));
             if(esVideo) {
                 video.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
-                await video.play();
             }else{
                 audio.currentTime = (datosLocal.datosSerieVideos.videos[aux].minuto*60)+datosLocal.datosSerieVideos.videos[aux].segundos;
-                await audio.play();
             }
         }
         enviarDatos();
         siguienteSkip.classList.add('invisible');
         btnSig.classList.remove('invisible');
+        if(esVideo){
+            video.play();
+        }else{
+            audio.play();
+        }
     }
 }
 
@@ -357,6 +362,7 @@ async function cargarVideoEnPosicion(e){
     document.getElementById("btn-list").classList.remove("cambio-color-boton");
     document.getElementById("video").classList.remove("video-z");
     document.getElementById("audio").classList.remove("video-z");
+    document.getElementById("contenedor-video").classList.remove("video-z");
     posicion = parseInt(e)-1;
     await videoActual();
     var aux = videoTieneVisualizacion();
@@ -370,16 +376,23 @@ async function cargarVideoEnPosicion(e){
 video.oncanplay = function(){
     document.getElementById("cargando").classList.add("invisible");
     finalRecurso(video.duration);
+    if(autoNext){
+        video.play();
+    }
 }
 
 audio.oncanplay = function(){
     document.getElementById("cargando").classList.add("invisible");
     finalRecurso(audio.duration);
+    if(autoNext){
+        audio.play();
+    }
 }
 
 function desplegarLista(){
     if(mediaqueryList.matches){
         if(document.querySelector("#listas-a.mostrar-lista-resp")!==null){
+            console.log("en");
             document.getElementById("listas-a").classList.remove("mostrar-lista-resp");
             document.getElementById("btn-list-2").innerHTML = '&#9650; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
             document.getElementById("btn-list").classList.remove("cambio-root");
@@ -388,12 +401,15 @@ function desplegarLista(){
             document.getElementById("video").classList.remove("video-z");
             document.getElementById("audio").classList.remove("video-z");
             document.getElementById("skip").classList.remove("skip-z");
+            document.getElementById("contenedor-video").classList.remove("video-z");
         }else{
+            console.log("es");
             document.getElementById("btn-list-2").innerHTML = '&#9660; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
             document.getElementById("btn-list").classList.add("cambio-color-boton");
             document.getElementById("listas-a").classList.add("mostrar-lista-resp");
             document.getElementById("video").classList.add("video-z");
             document.getElementById("audio").classList.add("video-z");
+            document.getElementById("contenedor-video").classList.add("video-z");
             document.getElementById("skip").classList.add("skip-z");
             cargarLista();
         }
@@ -435,4 +451,9 @@ function cambiarTiempoSkip(){
 if(esVideo){
     source.setAttribute('type', 'video/mp4');
     video.appendChild(source);
+}
+
+function cancelSkipAuto() {
+    siguienteSkip.classList.add('invisible');
+    autoNext = false;
 }
