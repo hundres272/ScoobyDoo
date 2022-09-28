@@ -130,8 +130,13 @@ h1,h2 {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.container-image-principal {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(184, 197, 220, 0.29);
+}
 .image-principal {
-    width: 100%;
+    width: auto;
     height: 400px;
 }
 .avanzar-lista {
@@ -334,5 +339,9 @@ a {
     }
     .nombre-serie {
         display: none;
+    }
+    .image-principal {
+        width: 100%;
+        height: auto;
     }
 }
