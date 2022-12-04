@@ -163,7 +163,7 @@ async function traerTiempo(){
         "serie": nombreSerie
     };
     
-    fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
+    fetch(`http://harry.alwaysdata.net/${nombreSerie}`,{
         method: 'POST',
         body: JSON.stringify(data),
         headers:{
@@ -217,7 +217,7 @@ function obtenerParametroGet(url){
 
 async function cargarDatosCapitulos(){
     var url = { prueba: {lista: []}};
-    await fetch(`https://scoobyapphundres.herokuapp.com/capitulos/${nombreSerie}`,{
+    await fetch(`http://harry.alwaysdata.net/capitulos/${nombreSerie}`,{
         headers:{
             'Content-Type': 'application/json',
             'x-access-token': localStorage.getItem("x-access-token")
@@ -285,7 +285,7 @@ function enviarDatos(){
         }
     };
     localStorage.setItem("datosvideos",JSON.stringify(data));
-    fetch(`https://scoobyapphundres.herokuapp.com/${nombreSerie}`,{
+    fetch(`http://harry.alwaysdata.net/${nombreSerie}`,{
         method: 'PUT',
         body: JSON.stringify(data),
         headers:{
