@@ -171,7 +171,13 @@ async function traerTiempo(){
             'x-access-token': localStorage.getItem("x-access-token")
         }
     })
-    .then(res => res.json())
+    .then(res => {
+        if(res && res.status === 401) {
+            cerrarSesion();
+        }else {
+            return res.json();
+        }
+    })
     .then(res2 => {
         if(res2.status!=='no encontrado'){
             localStorage.setItem("datosvideos", JSON.stringify(res2));
@@ -202,6 +208,9 @@ async function traerTiempo(){
             videoActual();
         }
     })
+    .catch(err => {
+        console.log("err ",err)
+    })
 }
 
 function obtenerParametroGet(url){
@@ -217,15 +226,24 @@ function obtenerParametroGet(url){
 
 async function cargarDatosCapitulos(){
     var url = { prueba: {lista: []}};
-    await fetch(`https://harry.alwaysdata.net/capitulos/${nombreSerie}`,{
+    await fetch(`https://harry.alwaysdata.net/${nombreSerie}`,{
         headers:{
             'Content-Type': 'application/json',
             'x-access-token': localStorage.getItem("x-access-token")
         }
     })
-    .then(res=>res.json())
+    .then(res=>{
+        if(res && res.status === 401) {
+            cerrarSesion();
+        }else {
+            return res.json();
+        }
+    })
     .then(res2=>{
         url.prueba.lista = JSON.parse(res2);
+    })
+    .catch(err => {
+        console.log("err ",err);
     })
     return url.prueba.lista;
 }
@@ -293,8 +311,21 @@ function enviarDatos(){
             'x-access-token': localStorage.getItem("x-access-token")
         }
     })
-    .then(res => res.json())
+    .then(res => {
+        if(res && res.status === 401) {
+            cerrarSesion();
+        }else {
+            return res.json();
+        }
+    })
     .then(res2 => console.log(res2))
+}
+
+function cerrarSesion(){
+    localStorage.removeItem("email");
+    localStorage.removeItem("datosvideos");
+    localStorage.removeItem("x-access-token");
+    location.href = "ingreso.html";
 }
 
 function llenarListaVideos(){
@@ -375,7 +406,7 @@ async function cargarVideoEnPosicion(e){
 
 video.oncanplay = function(){
     document.getElementById("cargando").classList.add("invisible");
-    finalRecurso(video.duration);
+    // finalRecurso(video.duration);
     if(autoNext){
         video.play();
     }
@@ -383,16 +414,19 @@ video.oncanplay = function(){
 
 audio.oncanplay = function(){
     document.getElementById("cargando").classList.add("invisible");
-    finalRecurso(audio.duration);
+    // finalRecurso(audio.duration);
     if(autoNext){
         audio.play();
     }
 }
 
+audio.addEventListener('ended',() => {
+    timeTen();
+})
+
 function desplegarLista(){
     if(mediaqueryList.matches){
         if(document.querySelector("#listas-a.mostrar-lista-resp")!==null){
-            console.log("en");
             document.getElementById("listas-a").classList.remove("mostrar-lista-resp");
             document.getElementById("btn-list-2").innerHTML = '&#9650; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
             document.getElementById("btn-list").classList.remove("cambio-root");
@@ -403,7 +437,6 @@ function desplegarLista(){
             document.getElementById("skip").classList.remove("skip-z");
             document.getElementById("contenedor-video").classList.remove("video-z");
         }else{
-            console.log("es");
             document.getElementById("btn-list-2").innerHTML = '&#9660; &nbsp;&nbsp;&nbsp;&nbsp; Capitulos';
             document.getElementById("btn-list").classList.add("cambio-color-boton");
             document.getElementById("listas-a").classList.add("mostrar-lista-resp");

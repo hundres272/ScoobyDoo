@@ -4,7 +4,7 @@ function enviarDatos(){
         "password": document.getElementById("password").value
     }
     if (datos.email!=="" && datos.password!=="") {
-        fetch('https://harry.alwaysdata.net/ingreso',{
+        fetch('https://harry.alwaysdata.net/',{
         // fetch('http://localhost:8000/ingreso',{
             method: 'POST',
             body: JSON.stringify(datos),
@@ -16,7 +16,6 @@ function enviarDatos(){
         .then(res2 => {
             if(res2.status==='Usuario encontrado'){
                 localStorage.setItem("email",res2.email);
-                console.log(res2.token);
                 localStorage.setItem("x-access-token",res2.token);
                 window.location.href = "indexSeriesAll.html";
             }else{
