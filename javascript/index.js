@@ -148,8 +148,10 @@ function tiempoDeVisualizacion(){
 
 async function traerTiempo(){
     var tiempo = null;
+    console.log("traer tiempo");
     nombreSerie = obtenerParametroGet(window.location.href);
     videos = await cargarDatosCapitulos();
+    console.log("videos ",videos);
     try {
         const datosvideos = JSON.parse(localStorage.getItem("datosvideos"));
         if (datosvideos && datosvideos.serie!==nombreSerie) {
@@ -172,9 +174,12 @@ async function traerTiempo(){
         }
     })
     .then(res => {
+        console.log("res ",res);
         if(res && res.status === 401) {
+            console.log("llega 1");
             cerrarSesion();
         }else {
+            console.log("llega 2",res.status);
             return res.json();
         }
     })
@@ -226,13 +231,14 @@ function obtenerParametroGet(url){
 
 async function cargarDatosCapitulos(){
     var url = { prueba: {lista: []}};
-    await fetch(`https://harry.alwaysdata.net/${nombreSerie}`,{
+    await fetch(`https://harry.alwaysdata.net/capitulos/${nombreSerie}`,{
         headers:{
             'Content-Type': 'application/json',
             'x-access-token': localStorage.getItem("x-access-token")
         }
     })
     .then(res=>{
+        console.log("res videos ",res.status);
         if(res && res.status === 401) {
             cerrarSesion();
         }else {
