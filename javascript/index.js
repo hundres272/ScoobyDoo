@@ -336,6 +336,7 @@ function cerrarSesion(){
     localStorage.removeItem("email");
     localStorage.removeItem("datosvideos");
     localStorage.removeItem("x-access-token");
+    localStorage.removeItem("ttp");
     location.href = "ingreso.html";
 }
 
@@ -375,6 +376,7 @@ function cerrarSesion(){
     localStorage.removeItem("email");
     localStorage.removeItem("datosvideos");
     localStorage.removeItem("x-access-token");
+    localStorage.removeItem("ttp");
     location.href = "ingreso.html";
 }
 
