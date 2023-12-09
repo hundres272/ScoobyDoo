@@ -28,6 +28,14 @@ function home(){
     location.href = 'indexSeriesAll.html';
 }
 
+function cerrarSesion(){
+    localStorage.removeItem("email");
+    localStorage.removeItem("datosvideos");
+    localStorage.removeItem("x-access-token");
+    localStorage.removeItem("ttp");
+    location.href = "ingreso.html";
+}
+
 document.addEventListener('keyup',(e)=>{
     if (e.code === "Enter") {
         enviarDatos();
