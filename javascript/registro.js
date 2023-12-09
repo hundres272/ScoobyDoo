@@ -14,7 +14,7 @@ function enviarDatos(){
         })
         .then(res => res.json())
         .then(res2 => {
-            if(res2){
+            if(res2.status === 'Usuario guardado'){
                 window.location.href = "indexSeriesAll.html";
             }else{
                 document.getElementById("error").innerText = res2.status;
