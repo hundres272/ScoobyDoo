@@ -17,8 +17,8 @@ function enviarDatos(){
             if(res2.status==='Usuario encontrado'){
                 localStorage.setItem("email",res2.email);
                 localStorage.setItem("x-access-token",res2.token);
-                if(res2.ffp) {
-                    localStorage.setItem("ttp",res2.ffp);
+                if(res2.ttp) {
+                    localStorage.setItem("ttp",res2.ttp);
                 }
                 window.location.href = "indexSeriesAll.html";
             }else{
