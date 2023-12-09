@@ -199,9 +199,11 @@ a {
     align-items: center;
     position: relative;
 }
-.cerrar-sesion {
+.contenedor-botones {
     position: absolute;
     right: 20px;
+}
+.cerrar-sesion {
     background-color: rgb(184 197 220 / 45%);
     padding: 10px;
     border: none;
@@ -262,9 +264,6 @@ a {
 }
 .invisible {
     display: none;
-}
-.remarcar {
-    background-color: #7ab2c9ec;
 }
 @media (max-width: 600px) {
     :root {

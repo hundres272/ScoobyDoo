@@ -6,7 +6,6 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="./styles/styleSeriesAll.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
-
     <script>
         var email = localStorage.getItem("email");
         if(email===null){
@@ -19,8 +18,11 @@
         <div class="menu">
             <img id="logo-menu" src="./images/logo1.png" />
             <h2 style="margin-left:10px;">Hundres</h2>
-            <button class="cerrar-sesion left" onclick="home()">Inicio</button>
-            <button class="cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+            <div class="contenedor-botones">
+                <button class="cerrar-sesion" onclick="home()">Inicio</button>
+                <button id="btn-registro" class="cerrar-sesion" onclick="registrarUsuarioNuevo()">Registro</button>
+                <button class="cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+            </div>
         </div>
         <div class="container-image-principal">
             <img class="image-principal" src="./images/harrypotterbig.jpg" />

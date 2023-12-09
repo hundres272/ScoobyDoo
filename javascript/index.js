@@ -147,6 +147,11 @@ function tiempoDeVisualizacion(){
 }
 
 async function traerTiempo(){
+    const botonRegistro = document.getElementById('btn-registro');
+    const ttp = localStorage.getItem('ttp');
+    if(ttp !== 'ffp') {
+        botonRegistro.classList.add('invisible')
+    }
     var tiempo = null;
     console.log("traer tiempo");
     nombreSerie = obtenerParametroGet(window.location.href);
@@ -480,6 +485,9 @@ if(mediaqueryList.matches) {
 
 function home(){
     location.href = 'indexSeriesAll.html';
+}
+function registrarUsuarioNuevo(){
+    location.href = 'registro.html';
 }
 
 function cambiarTiempoSkip(){

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/ingreso.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Registro Hundres Series</title>
+    <script src="./javascript/registro.js"></script>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="menu">
+        <button class="cerrar-sesion left" onclick="home()">Inicio</button>
+        <button class="cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+    <main id="pantalla-completa">
+        <div class="contenedor-form">
+            <h2>Registro</h2>
+            <label>Nombre:</label>
+            <input id="name">
+            <label>Correo:</label>
+            <input id="email">
+            <label>Contraseña:</label>
+            <input id="password" type="password">
+            <p id="error"></p>
+            <button class="btn" onclick="enviarDatos()">Enviar</button>
+        </div>
+    </main>
+</body>
+</html>

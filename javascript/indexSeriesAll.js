@@ -1,7 +1,10 @@
 function avanzar(){
-    console.log(document.getElementById("series-row").scrollLeft);
     var scrl = document.getElementById("series-row").scrollLeft;
     document.getElementById("series-row").scrollLeft = parseInt(scrl)+parseInt(162);
+}
+
+function registrarUsuarioNuevo(){
+    location.href = 'registro.html';
 }
 
 function cerrarSesion(){
@@ -10,3 +13,13 @@ function cerrarSesion(){
     localStorage.removeItem("x-access-token");
     location.href = "ingreso.html";
 }
+
+function load() {
+    const botonRegistro = document.getElementById('btn-registro');
+    const ttp = localStorage.getItem('ttp');
+    if(ttp === null || ttp !== 'ffp') {
+        botonRegistro.classList.add('invisible');
+    }
+}
+
+document.addEventListener('load', load());
