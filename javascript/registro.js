@@ -9,7 +9,8 @@ function enviarDatos(){
             method: 'POST',
             body: JSON.stringify(datos),
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-access-token': localStorage.getItem("x-access-token")
             }
         })
         .then(res => res.json())
